@@ -1,12 +1,21 @@
 {
-    "routes": [
-        {
-            "src": "/",
-            "dest": "/"
-        },
-        {
-            "src": "/test",
-            "dest": "/"
-        }
-    ]
+  "version": 2,
+  "builds": [
+    {
+      "src": "src/index.ts",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": ["src/**/*.ts"]
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/index.js"
+    }
+  ],
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "cleanUrls": true
 }
