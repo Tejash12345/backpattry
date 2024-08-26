@@ -5,22 +5,19 @@
       "src": "src/index.ts",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["src/**/*.ts"]
+        "includeFiles": ["src/**/*.ts"],
+        "maxLambdaSize": "50mb" // Adjust as needed based on your backend size
       }
-    },
-    {
-      "src": "public/**/*",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "/index.ts"
+      "dest": "/api/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "index.ts"
+      "dest": "/index.html" // Adjust if you have a specific static file setup
     }
   ],
   "buildCommand": "npm run build",
