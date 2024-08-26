@@ -5,30 +5,22 @@
       "src": "src/index.ts",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["src/**/*.ts"]
+        "includeFiles": ["src/**/*.ts"],
+        "maxLambdaSize": "50mb" // Adjust as needed based on your backend size
       }
-    },
-    {
-      "src": "public/**/*",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
-      "source": "/feedback/((?!general).*)",
-      "destination": "/api/feedback/general"
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
     },
     {
-      "source": "/api/(.*)",
-      "destination": "/api/$1"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
+      "src": "/(.*)",
+      "dest": "/index.html" // Adjust if you have a specific static file setup
     }
   ],
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "cleanUrls": true,
-  "trailingSlash": false
+  "cleanUrls": true
 }
