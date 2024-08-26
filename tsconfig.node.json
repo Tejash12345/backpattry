@@ -4,12 +4,10 @@
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
     "skipLibCheck": true,
     "module": "ESNext",
-    "moduleResolution": "node", // Change to node for compatibility with Node.js
+    "moduleResolution": "bundler",
     "allowSyntheticDefaultImports": true,
     "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true // Ensures compatibility with CommonJS modules
+    "noEmit": true
   },
-  "include": ["src/**/*.ts"], // Ensure all TypeScript files are included
-  "exclude": ["node_modules", "dist"] // Exclude node_modules and build outputs
+  "include": ["vite.config.ts"]
 }
