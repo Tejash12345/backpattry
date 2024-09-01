@@ -15,7 +15,7 @@ declare global {
 export const jwtCheck = auth({
   audience: process.env.AUTH0_AUDIENCE,
   issuerBaseURL: process.env.AUTH0_ISSUER_BASE_URL,
-  tokenSigningAlg: "Auth0",
+  tokenSigningAlg: "RS256",
 });
 
 export const jwtParse = async (
